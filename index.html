@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./containers.css" />
+    <title>JS</title>
+  </head>
+  <body>
+    <header class="header">
+      <p><a class="menu" onclick="openMenu()">Меню</a></p>
+    </header>
+    <div class="heading">
+      <h1>Что такое JavaScript?</h1>
+    </div>
+    <div class="container">
+      <div class="zero_container">
+        <p class="textJS">
+          <b>JavaScript</b> — это язык сценариев, используемый для создания и
+          управления динамическим контентом веб-сайта, т.е. всем, что
+          перемещается, обновляется или иным образом изменяется на вашем экране,
+          не требуя перезагрузки веб-страницы вручную.<br />
+          Для JS создаются различные фреймворки и библиотеки, предназначенные
+          для упрощения использования данного языка программирования.
+        </p>
+        <p class="textJS">
+          <b>Библиотеки</b> JavaScript представляют собой наборы заранее
+          написанных фрагментов кода, которые можно использовать для выполнения
+          общих функций JavaScript.
+          <br />
+          <b>Фреймворки</b> JavaScript представляют собой полный набор
+          инструментов, которые помогают формировать и организовывать ваш
+          веб-сайт или веб-приложение.
+        </p>
+        <p class="textJS">
+          Область использования этого языка очень обширна, его используют для
+          достижения таких целей как:
+        </p>
+        <ol class="list">
+          <li>добавление интерактивности на веб-сайт</li>
+          <li>разработка мобильных приложений</li>
+          <li>создание игр на основе веб-браузера</li>
+          <li>back-end разработка</li>
+        </ol>
+        <p class="textJS">
+          К <b>преимуществам</b> данного языка можно отнести скорость,
+          популярность, универсальность, JS повышает производительность
+          веб-сайтов и приложений за счет уменьшения длины кода.
+          <br />
+          К <b>недостаткам</b> поддержка браузера – каждый браузер по-разному
+          интерпретирует JavaScript, также не каждый браузер может поддерживать
+          новые функции обновленной версии языка.
+        </p>
+        <p class="textJS">
+          Классический JavaScript — это язык программирования для интернета, он
+          бессилен за пределами браузера. С помощью JavaScript нельзя запустить
+          программу на компьютере или записать файл в нужную папку.
+        </p>
+      </div>
+    </div>
+
+    <div class="main_container">
+      <div class="modal_header">
+        <h1>Примеры использования JavaScript</h1>
+        <div class="modal_btn-close" data-dismiss="modal" title="Закрыть">
+          ×
+        </div>
+      </div>
+      <div class="first_container">
+        <h2>Приветствие пользователя</h2>
+        <div class="desc_fun">
+          <div class="description">
+            <p>Для решения этой задачи нужно использовать:</p>
+            <ol>
+              <li>
+                Методы:
+                <ul>
+                  <li>
+                    Методы <b><i>querySelector()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>createElement()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>getElementById()</i></b>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Функции:
+                <ul>
+                  <li>
+                    Функция <b><i>welcome()</i></b>
+                  </li>
+                  <li>
+                    Функция <b><i>load()</i></b>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                ClassList и метод - <b><i>add()</i></b>
+              </li>
+              <li>Window.alert()</li>
+              <li>Повесить на кнопку событие onclick="function()"</li>
+              <li>
+                Также <b>LocalStorage</b> и его методы
+                <b><i>setItem(), getItem()</i></b>
+              </li>
+            </ol>
+          </div>
+          <form onSubmit="return welcome()">
+            <p>
+              <label>Введите имя пользователя</label>
+              <input
+                type="text"
+                id="Login"
+                name="Login"
+                placeholder="Example"
+              />
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="second_container">
+        <h2>Площадь треугольника</h2>
+        <div class="desc_fun">
+          <div class="description">
+            <p>Для решения этой задачи нужно использовать:</p>
+            <ol>
+              <li>
+                Методы:
+                <ul>
+                  <li>
+                    Методы <b><i>querySelector()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>createElement()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>getElementById()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>appenChild()</i></b>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Функции:
+                <ul>
+                  <li>
+                    Функция <b><i>square()</i></b>
+                  </li>
+                </ul>
+              </li>
+              <li>Свойство innerHTML и innerText</li>
+              <li>Повесить на кнопку событие onclick="function()"</li>
+            </ol>
+          </div>
+          <form onSubmit="return welcome()">
+            <p class="p_form">
+              <label
+                >Введите основание треугольника
+                <input type="text" id="base" name="base" placeholder="2" />
+              </label>
+            </p>
+            <p class="p_form">
+              <label
+                >Введите высоту треугольника
+                <input type="text" id="height" name="height" placeholder="3" />
+              </label>
+            </p>
+            <div class="btn">
+              <button type="button" onclick="square()">
+                Вычислить площадь
+              </button>
+            </div>
+            <div class="square"></div>
+          </form>
+        </div>
+      </div>
+      <div class="third_container">
+        <h2>Сравнение длин строк</h2>
+        <div class="desc_fun">
+          <div class="description">
+            <p>Для решения этой задачи нужно использовать:</p>
+            <ol>
+              <li>
+                Методы:
+                <ul>
+                  <li>
+                    Методы <b><i>querySelector()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>appenChild()</i></b>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Функции:
+                <ul>
+                  <li>
+                    Функция <b><i>compareString()</i></b>
+                  </li>
+                  <li>
+                    Готовая функция <b><i>prompt()</i></b>
+                  </li>
+                </ul>
+              </li>
+              <li>Свойство innerHTML и innerText</li>
+            </ol>
+          </div>
+          <div class="btn">
+            <button type="button" onclick="compareStrings()">
+              Ввести строки
+            </button>
+          </div>
+          <div class="compare"></div>
+        </div>
+      </div>
+      <div class="fourth_container">
+        <h2>Максимальное и минимальное значение массива</h2>
+        <div class="desc_fun">
+          <div class="description">
+            <p>Для решения этой задачи нужно использовать:</p>
+            <ol>
+              <li>
+                Методы:
+                <ul>
+                  <li>
+                    Методы <b><i>querySelector()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>createElement()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>getElementById()</i></b>
+                  </li>
+
+                  <li>
+                    Метод <b><i>appenChild()</i></b>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Функции:
+                <ul>
+                  <li>
+                    Функция <b><i>extrArray()</i></b>
+                  </li>
+                  <li>
+                    Готовая функция <b><i>prompt()</i></b>
+                  </li>
+                </ul>
+              </li>
+              <li>Свойство innerHTML и innerText</li>
+              <li>
+                Три цикла <b><i>for</i></b>
+              </li>
+            </ol>
+          </div>
+          <div class="btn">
+            <button type="button" onclick="extrArray()">Ввести массив</button>
+          </div>
+          <div class="extr"></div>
+        </div>
+      </div>
+      <div class="fifth_container">
+        <h2>Таймер</h2>
+        <div class="desc_fun">
+          <div class="description">
+            <p>Для решения этой задачи нужно использовать:</p>
+            <ol>
+              <li>
+                Методы:
+                <ul>
+                  <li>
+                    Методы <b><i>querySelector()</i></b>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Функции:
+                <ul>
+                  <li>
+                    Функция-конструктор <b><i>Timer(time)</i></b>
+                    <ul>
+                      <li>
+                        Внутри Timer(time) -
+                        Start(),Stop(),StartAgain(),Update()
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    Готовая функция <b><i>setInterval()</i></b>
+                  </li>
+                  <li>
+                    Готовая функция <b><i>clearInterval()</i></b>
+                  </li>
+                </ul>
+              </li>
+              <li>Свойство innerHTML и innerText</li>
+              <li>if, else</li>
+              <li>Math.floor()</li>
+            </ol>
+          </div>
+          <div class="timer_button">
+            <div class="timer">
+              <div class="hour">00</div>
+              :
+              <div class="minute">00</div>
+              :
+              <div class="second">00</div>
+            </div>
+            <div class="container_button">
+              <button onclick="timer.Start()">Старт</button>
+              <button onclick="timer.Stop()">Стоп</button>
+              <button onclick="timer.StartAgain()">Начать заново</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sixth_container">
+        <h2>Тест</h2>
+        <div class="desc_fun">
+          <div class="description">
+            <p>Для решения этой задачи нужно использовать:</p>
+            <ol>
+              <li>
+                Класс Test, который включает в себя constructor(), click(),
+                next(), end().
+              </li>
+              <li>
+                Класс Qustion, который включает в себя constructor(), click().
+              </li>
+              <li>Класс Answer, который включает в себя constructor().</li>
+              <li>Класс Result, constructor(), check().</li>
+              <li>
+                Методы:
+                <ul>
+                  <li>
+                    Методы <b><i>querySelector()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>createElement()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>getElementById()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>appenChild()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>setAttribute()()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>addEventListener()()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>getElementsByClassName()()</i></b>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Функции:
+                <ul>
+                  <li>
+                    Функция <b><i>Update()</i></b>
+                  </li>
+                  <li>
+                    Функция <b><i>Init()</i></b>
+                  </li>
+                  <li>
+                    Функция <b><i>Click()</i></b>
+                  </li>
+                  <li>
+                    Функция <b><i>setTimeout()</i></b>
+                  </li>
+                </ul>
+              </li>
+              <li>Свойство innerHTML и innerText</li>
+              <li>
+                Циклы <b><i>for</i></b>
+              </li>
+              <li>if, else</li>
+            </ol>
+          </div>
+          <div class="body__test">
+            <div class="test">
+              <div class="head_test"><p id="text">LOL</p></div>
+            </div>
+            <div class="body_test">
+              <div class="buttons">
+                <div class="buttons__content" id="buttons">
+                  <button class="button 0">Default button</button><br />
+                  <button class="button 1">button</button><br />
+                  <button class="button 2">button</button><br />
+                  <button class="button 3">button</button><br />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="seventh_container">
+        <h2>Изображение в модальном окне</h2>
+        <div class="desc_fun">
+          <div class="description">
+            <p>Для решения этой задачи нужно использовать:</p>
+            <ol>
+              <li>
+                Методы:
+                <ul>
+                  <li>
+                    Методы <b><i>querySelector()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>createElement()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>removeChild()</i></b>
+                  </li>
+                  <li>
+                    Метод <b><i>appenChild()</i></b>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Функции:
+                <ul>
+                  <li>
+                    Функция <b><i>openImage()</i></b>
+                  </li>
+                  <li>
+                    Внутренняя функция <b><i>image.onclick = function ()</i></b>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                ClassList и метод - <b><i>add()</i></b>
+              </li>
+            </ol>
+          </div>
+          <div class="btn">
+            <button onclick="openImage()">Нажми на меня</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer><p>Train prodaction</p></footer>
+    <script src="./main.js"></script>
+  </body>
+</html>

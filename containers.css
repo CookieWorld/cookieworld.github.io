@@ -1,0 +1,282 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #684fd4ea;
+  height: 50px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.container {
+  position: relative;
+}
+.heading {
+  width: 100%;
+  height: 93.0786268vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #684fd4ea;
+}
+
+.textJS {
+  margin: 20px 20px 10px 20px;
+}
+.zero_container {
+  position: relative;
+  width: 65%;
+  height: 100vh;
+  background-color: #f3f3f5;
+}
+.zero_container p,
+.zero_container ol {
+  font-family: "Muli", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+.heading h1 {
+  font-family: LyftProUI, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 90px;
+  color: white;
+  margin: 20px;
+}
+.list {
+  margin: 0px 0px 20px 0px;
+}
+p {
+  font-family: ProximaNova, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+h1 {
+  font-family: LyftProUI, sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  margin: 20px;
+}
+h2 {
+  font-family: LyftProUI, sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 0px 0px 10px 0px;
+}
+#base,
+#height {
+  margin-top: 0;
+}
+.p_form {
+  margin: 0px 0px 10px 0px;
+}
+form {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+label {
+  width: 50px;
+}
+.user,
+.header p {
+  font-family: LyftProUI, sans-serif;
+  margin: 5px;
+  margin-left: 35px;
+  padding-right: 10px;
+  font-size: 25px;
+  color: white;
+}
+input {
+  height: 20px;
+  padding: 8px 8px;
+  display: block;
+  width: 100%;
+  background: rgb(221, 221, 221);
+  line-height: 40px;
+  border-width: 0;
+  border-radius: 20px;
+  font-family: "Roboto", sans-serif;
+}
+button {
+  width: 200px;
+  height: 50px;
+  font-family: "Roboto", sans-serif;
+  background: rebeccapurple;
+  border-radius: 20px;
+  line-height: 40px;
+  border-width: 0;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+.square {
+  display: flex;
+  flex-direction: column;
+}
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: LyftProUI, sans-serif;
+  font-size: 25px;
+}
+.hour,
+.minute,
+.second {
+  font-family: LyftProUI, sans-serif;
+  font-size: 25px;
+}
+.image {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
+  background: #000;
+  opacity: 1;
+  left: 0;
+  top: 0;
+}
+.menuWin {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+}
+
+.main_container {
+  display: none;
+  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.zero_container,
+.first_container,
+.second_container,
+.third_container,
+.fourth_container,
+.fifth_container,
+.sixth_container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+}
+.modal_btn-close {
+  float: right;
+  font-family: sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.modal_btn-close:focus,
+.modal_btn-close:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.75;
+}
+.modal_header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #eceeef;
+}
+.head_test {
+  padding: 5px;
+}
+.body_test {
+  margin: 10px;
+}
+.button {
+  border: 0;
+  border-radius: 10px;
+  background: rebeccapurple;
+  color: #fff;
+  padding: 10px 25px;
+  width: 100%;
+  font-size: 15pt;
+  display: block;
+  margin: 2px auto;
+  cursor: pointer;
+}
+footer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  height: 40px;
+  background-color: #684fd4ea;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+}
+.desc_fun {
+  display: flex;
+  flex-direction: row;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.timer_button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container_button button {
+  margin-top: 10px;
+  margin-left: 15px;
+  width: 180px;
+}
+.body__test {
+  width: 100%;
+display: flex;
+flex-direction: column;
+}
+.test {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
