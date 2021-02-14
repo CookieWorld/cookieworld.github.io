@@ -264,17 +264,10 @@ let headElem = document.getElementById("text");
 let buttonsElem = document.querySelector(".buttons");
 Update();
 
-//Обновление теста
 function Update() {
-    //Проверяем, есть ли ещё вопросы
     if (test.current < test.questions.length) {
-        //Если есть, меняем вопрос в заголовке
         headElem.innerHTML = test.questions[test.current].text;
-
-        //Удаляем старые варианты ответов
         buttonsElem.innerHTML = "";
-
-        //Создаём кнопки для новых вариантов ответов
         for (let i = 0; i < test.questions[test.current].answers.length; i++) {
             let btn = document.createElement("button");
             btn.className = "button";
@@ -286,46 +279,45 @@ function Update() {
             buttonsElem.appendChild(btn);
         }
 
-        //Выводим номер текущего вопроса
-        //pagesElem.innerHTML = (test.current + 1) + " / " + test.questions.length;
-
-        //Вызываем функцию, которая прикрепит события к новым кнопкам
         Init();
     }
     else {
-        //Если это конец, то выводим результат
         buttonsElem.innerHTML = "";
         headElem.innerHTML = test.results[test.result].text;
-        //pagesElem.innerHTML = "Очки: " + test.score;
     }
 }
 
 function Init() {
-    //Находим все кнопки
+
     let btns = document.getElementsByClassName("button");
 
     for (let i = 0; i < btns.length; i++) {
-        //Прикрепляем событие для каждой отдельной кнопки
-        //При нажатии на кнопку будет вызываться функция Click()
+        
         btns[i].addEventListener("click", function (e) { Click(e.target.getAttribute("index")); });
     }
 }
 
 function Click(index) {
-    //Получаем номер правильного ответа
     let correct = test.Click(index);
-    //Ждём секунду и обновляем тест
     setTimeout(Update, 1000);
 }
 /*                        6 task                            */
 function openImage() {
-    let imageLoad = document.querySelector('.image');
-    let image = document.createElement('img');
-    image.classList.add("image");
-    image.src = "./sierra.jpg";
-    document.body.appendChild(image);
-    image.onclick = function () {
-        image.parentNode.removeChild(image);
+    let cont = document.createElement('div');
+    cont.classList.add("image");
+    cont.style.backgroundImage = "url('./sierra.jpg')";
+    cont.style.backgroundRepeat = "no-repeat";
+    cont.style.backgroundSize = "100% 100vh";
+    let date = document.createElement('p');
+    date.innerText = new Date();
+    let currentUser = document.createElement('p');
+    currentUser.innerText = nameMemory;
+    cont.appendChild(date);
+    cont.appendChild(currentUser);
+    document.body.appendChild(cont);
+    cont.onclick = function () {
+        cont.style.animationName = "zoom-out";
+        cont.parentNode.removeChild(cont);
         return false;
     }
 }
@@ -361,3 +353,33 @@ function openMenu() {
         container.style.display = "flex";
     });
 };
+const animItems = document.querySelectorAll(".anim_items");
+if (animItems.length > 0) {
+    window.addEventListener('scroll', animOnScroll);
+    function animOnScroll() {
+        for (let i = 0; i < animItems.length; i++) {
+            const animItem = animItems[i];
+            const animItemHeight = animItem.offsetHeight;
+            const animItemOffset = offset(animItem).top;
+            const animStart = 4;
+
+            let animItemPoint = window.innerHeight - animItemHeight / animStart;
+            if (animItemHeight > window.innerHeight) {
+                animItemPoint = window.innerHeight - window.innerHeight / animStart;
+            }
+
+            if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
+                animItem.classList.add('anim__active');
+            } else {
+                animItem.classList.remove('anim__active');
+            }
+        }
+    }
+    function offset(el) {
+        const rect = el.getBoundingClientRect(),
+            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+    }
+    animOnScroll();
+}

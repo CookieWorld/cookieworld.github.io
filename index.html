@@ -12,7 +12,7 @@
       <p><a class="menu" onclick="openMenu()">Меню</a></p>
     </header>
     <div class="heading">
-      <h1>Что такое JavaScript?</h1>
+      <h1 class= "anim_items">Что такое JavaScript?</h1>
     </div>
     <div class="container">
       <div class="zero_container">
@@ -109,7 +109,7 @@
               </li>
             </ol>
           </div>
-          <form onSubmit="return welcome()">
+          <form>
             <p>
               <label>Введите имя пользователя</label>
               <input
@@ -119,6 +119,11 @@
                 placeholder="Example"
               />
             </p>
+            <div class="btn">
+              <button type="button" onclick="return welcome()">
+                Вход
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -447,7 +452,6 @@
         </div>
       </div>
     </div>
-    <footer><p>Train prodaction</p></footer>
     <script src="./main.js"></script>
   </body>
 </html>
