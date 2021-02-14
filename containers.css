@@ -117,7 +117,7 @@ input {
   border-radius: 20px;
   font-family: "Roboto", sans-serif;
 }
-button {
+button, .test button{
   width: 200px;
   height: 50px;
   font-family: "Roboto", sans-serif;
@@ -166,6 +166,7 @@ a {
 .image {
   animation-name: zoom;
   animation-duration: 0.6s;
+  transition: visibility 0.6s;
 }
 @keyframes zoom {
   from {
@@ -286,6 +287,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .container_button {
   display: flex;
@@ -314,6 +316,11 @@ a {
 }
 .test {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.test p {
+  margin-top: 0;
+  margin-bottom: 10px;
 }

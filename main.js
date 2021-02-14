@@ -61,7 +61,7 @@ function extrArray() {
             }
         }
     }
-    arrayRes.innerText = "Минимальный элемент массива: " + min + "<br>Максимальный элемент массива: " + max;
+    arrayRes.innerText = "Минимальный элемент массива: " + min + "\nМаксимальный элемент массива: " + max;
     container.appendChild(arrayRes);
 
 }
@@ -104,8 +104,7 @@ function Timer(time) {
 const timer = new Timer(0);
 /*                        5 task                            */
 class Test {
-    constructor(type, questions, results) {
-        this.type = type;
+    constructor(questions, results) {
         this.questions = questions;
         this.results = results;
         this.score = 0;
@@ -114,22 +113,7 @@ class Test {
     }
 
     Click(index) {
-        let value = this.questions[this.current].Click(index);
-        this.score += value;
-        let correct = -1;
-        if (value >= 1) {
-            correct = index;
-        }
-        else {
-            for (let i = 0; i < this.questions[this.current].answers.length; i++) {
-                if (this.questions[this.current].answers[i].value >= 1) {
-                    correct = i;
-                    break;
-                }
-            }
-        }
         this.Next();
-        return correct;
     }
     Next() {
         this.current++;
@@ -194,74 +178,75 @@ const questions =
             [
                 new Answer("1", 0),
                 new Answer("2", 1),
-                new Answer("x", 0),
-                new Answer("Ошибка", 0)
+                new Answer("x", 2),
+                new Answer("Ошибка", 3)
             ]),
         new Question("Что делает оператор === ?",
             [
                 new Answer("Проверяет правильность введенных данных", 0),
                 new Answer("Сравнивает без приведения типа", 1),
-                new Answer("Нет такого оператора", 0)
+                new Answer("Нет такого оператора", 2)
             ]),
         new Question("Чему равно i в конце кода?<br>for(var i=0; i<10; i++)" + "{" + "<br>console.log(i);" + "}" +
             "<br>// i = ?",
             [
                 new Answer("undefined", 0),
-                new Answer("9", 0),
+                new Answer("9", 2),
                 new Answer("10", 1),
-                new Answer("Нет такой переменной после цикла", 0)
+                new Answer("Нет такой переменной после цикла", 3)
             ]),
         new Question("Что выведет этот код?<br>" + "alert(" + "1" + "[0] );",
             [
                 new Answer("0", 0),
                 new Answer("1", 1),
-                new Answer("2", 0),
-                new Answer("undefined", 0)
+                new Answer("2", 2),
+                new Answer("undefined", 3)
             ]),
         new Question("Язык JavaScript является подвидом языка Java — верно?",
             [
                 new Answer("Да", 0),
                 new Answer("Нет", 1),
-                new Answer("Наоборот, Java – подвид JavaScript", 0)
+                new Answer("Наоборот, Java – подвид JavaScript", 2)
             ]),
         new Question("За сколько дней был разработан LiveScript — первая версия языка JavaScript?",
             [
                 new Answer("1", 0),
-                new Answer("100", 0),
+                new Answer("100", 2),
                 new Answer("10", 1),
-                new Answer("1000", 0)
+                new Answer("1000", 3)
             ]),
         new Question("Что выведет alert?<br>alert(str); //" + "?" + "<br>var str = " + "Hello;",
             [
                 new Answer("Hello", 0),
                 new Answer("undefined", 1),
-                new Answer("Ошибка", 0)
+                new Answer("Ошибка", 2)
             ]),
         new Question("Чему равно a + b + c?<br>let a = 1;" + "<br>let b = { toString() {return '1'} };<br>let c = 1;",
             [
                 new Answer("11[object Object]", 0),
-                new Answer("2[object Object]", 0),
+                new Answer("2[object Object]", 2),
                 new Answer("111", 1),
-                new Answer("3", 0)
+                new Answer("3", 3)
             ]),
         new Question("Какая арифметическая операция приводит к ошибке в javascript?",
             [
                 new Answer("Деление на ноль", 0),
-                new Answer("Умножение числа на строку", 0),
-                new Answer("Корень из отрицательного числа", 0),
+                new Answer("Умножение числа на строку", 2),
+                new Answer("Корень из отрицательного числа", 3),
                 new Answer("Никакая из вышеперечисленных", 1)
             ]),
         new Question("Есть ли разница между выражениями?<br>!!( a && b )<br>(a && b)",
             [
                 new Answer("Да", 1),
-                new Answer("Нет", 0),
+                new Answer("Нет", 2),
                 new Answer("В первом выражении ошибка, что еще за «!!» ??", 0)
             ])
     ];
 
-const test = new Test(1, questions, results);
+const test = new Test(questions, results);
 let headElem = document.getElementById("text");
 let buttonsElem = document.querySelector(".buttons");
+let testContainer = document.querySelector(".test");
 Update();
 
 function Update() {
@@ -274,7 +259,7 @@ function Update() {
 
             btn.innerHTML = test.questions[test.current].answers[i].text;
 
-            btn.setAttribute("index", i);
+            btn.setAttribute("index", test.questions[test.current].answers[i].value);
 
             buttonsElem.appendChild(btn);
         }
@@ -283,23 +268,71 @@ function Update() {
     }
     else {
         buttonsElem.innerHTML = "";
-        headElem.innerHTML = test.results[test.result].text;
+        headElem.innerHTML = "";
+        textRes = document.createElement("h2");
+        textRes.innerText = "Вы - " + test.results[test.result].text + "\nВаш результат " + test.score + " из 10.";
+        testContainer.appendChild(textRes);
+        printResults();
     }
 }
-
+let textRes;
+let choosenAnswers = [];
 function Init() {
 
-    let btns = document.getElementsByClassName("button");
-
+    let btns = document.querySelectorAll(".button");
+    console.log(btns);
     for (let i = 0; i < btns.length; i++) {
-        
         btns[i].addEventListener("click", function (e) { Click(e.target.getAttribute("index")); });
     }
-}
 
+}
 function Click(index) {
-    let correct = test.Click(index);
-    setTimeout(Update, 1000);
+    if (index == 1) {
+        test.score += 1;
+        for (let i = 0; i < test.questions[test.current].answers.length; i++) {
+            if (test.questions[test.current].answers[i].value == index) choosenAnswers.push(test.questions[test.current].answers[i].text);
+        }
+        choosenAnswers.push("Верно");
+    } else {
+        for (let i = 0; i < test.questions[test.current].answers.length; i++) {
+            if (test.questions[test.current].answers[i].value == index) choosenAnswers.push(test.questions[test.current].answers[i].text);
+        }
+        choosenAnswers.push("Неверно");
+    }
+    console.log(index);
+    test.Click(index);
+    setTimeout(Update, 500);
+}
+function printResults() {
+    let question = [];
+    let correct = [];
+    let count = 1;
+    let btnAgain = document.createElement("button");
+    btnAgain.textContent = "Пройти ещё раз"
+    for (let i = 0; i < 10; i++) {
+        question[i] = document.createElement("p");
+        question[i].innerText =count + ") " + test.questions[i].text;
+        count++;
+        correct[i] = document.createElement("p");
+        correct[i].innerText = choosenAnswers.shift() + " (" + choosenAnswers.shift() + ")";
+        testContainer.appendChild(question[i]);
+        testContainer.appendChild(correct[i]);
+    }
+    testContainer.appendChild(btnAgain);
+    btnAgain.addEventListener("click", function (e) {
+        for (let i = 0; i < 10; i++) {
+            testContainer.removeChild(question[i]);
+            testContainer.removeChild(correct[i]);
+        }
+        testContainer.removeChild(textRes);
+        testContainer.removeChild(btnAgain);
+        test.current = 0;
+        test.result = 0;
+        test.score = 0;
+        Update();
+    })
+    console.log(correct);
+    console.log(question);
 }
 /*                        6 task                            */
 function openImage() {
@@ -311,13 +344,13 @@ function openImage() {
     let date = document.createElement('p');
     date.innerText = new Date();
     let currentUser = document.createElement('p');
-    currentUser.innerText = nameMemory;
+    if (nameMemory != null) currentUser.innerText = nameMemory;
     cont.appendChild(date);
     cont.appendChild(currentUser);
     document.body.appendChild(cont);
     cont.onclick = function () {
         cont.style.animationName = "zoom-out";
-        cont.parentNode.removeChild(cont);
+        cont.style.visibility = 'hidden';
         return false;
     }
 }
