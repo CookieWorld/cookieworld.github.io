@@ -221,25 +221,35 @@ a {
   align-items: center;
   width: 80%;
 }
+
+.second_container,
+.third_container,
+.fourth_container,
+.fifth_container,
+.sixth_container,
+.seventh_container {
+  border-style: groove none none none;
+}
+
 .modal_btn-close {
   float: right;
   font-family: sans-serif;
   font-size: 44px;
   font-weight: 700;
   line-height: 1;
-  color: #000;
+  color: white;
   text-shadow: 0 1px 0 #fff;
-  opacity: 0.5;
+  opacity: 1;
   text-decoration: none;
   margin-right: 20px;
 }
 
 .modal_btn-close:focus,
 .modal_btn-close:hover {
-  color: #000;
+  color:pink;
   text-decoration: none;
   cursor: pointer;
-  opacity: 0.75;
+  opacity: 1;
 }
 .modal_header {
   width: 100%;
@@ -248,6 +258,10 @@ a {
   justify-content: space-between;
   padding: 15px;
   border-bottom: 1px solid #eceeef;
+  background-color: #684fd4ea;
+}
+.modal_header h1 {
+  color: white;
 }
 .head_test {
   padding: 5px;
