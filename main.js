@@ -41,6 +41,7 @@ function compareStrings() {
 }
 /*                        3 task                            */
 let array = [];
+let arrayList;
 function extrArray() {
     let container = document.querySelector(".extr");
     container.innerHTML = "";
@@ -48,16 +49,22 @@ function extrArray() {
     for (let i = 0; i < 5; i++) {
         array[i] = Number(prompt('Введите число: '));
     }
-    let max = array[0];
-    let min = array[0];
+    let list = document.querySelector(".listArray");
+    arrayList = document.createElement("p");
+    arrayList.innerText = "Ваш массив: " + array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4];
+    list.appendChild(arrayList);
+    let max = 0;
+    let min = 0;
     for (let i = 0; i < array.length; i++) {
         for (let j = 1 + i; j < array.length; j++) {
-            if (array[i] <= array[j]) {
-                if (min >= array[i]) min = array[i];
-                if (max <= array[j]) max = array[j];
-            } else if (array[i] >= array[j]) {
-                if (min >= array[j]) min = array[j];
-                if (max <= array[i]) max = array[i];
+            if (array[i] != NaN || array[i] != null) {
+                if (array[i] <= array[j]) {
+                    if (min >= array[i]) min = array[i];
+                    if (max <= array[j]) max = array[j];
+                } else if (array[i] >= array[j]) {
+                    if (min >= array[j]) min = array[j];
+                    if (max <= array[i]) max = array[i];
+                }
             }
         }
     }
@@ -69,20 +76,36 @@ function extrArray() {
 let hour = document.querySelector(".hour");
 let min = document.querySelector(".minute");
 let sec = document.querySelector(".second");
+let prin = document.querySelector(".print");
+let start = 0;
+let stop = 0;
+let boolean = false;
 function Timer(time) {
     time: time,
         timesave = time;
     return {
         Start: function () {
+            if (boolean == true) {
+                start = time - 1;
+                boolean = false;
+            }
+            clearInterval(Timer.interval);
             Timer.interval = setInterval(timer.Update, 1000);
         },
         Stop: function () {
+            boolean = true;
+            stop = time - 1;
             clearInterval(Timer.interval);
         },
         StartAgain: function () {
             time = timesave;
+            timer.Stop();
             clearInterval(Timer.interval);
             timer.Start();
+        },
+        CheckTime: function () {
+            let print = document.createElement('p');
+            prin.innerText = "Прошло " + (stop - start) + " секунд";
         },
         Update: function () {
             let seconds = time % 60;
@@ -101,7 +124,7 @@ function Timer(time) {
         },
     };
 }
-const timer = new Timer(0);
+const timer = new Timer(1);
 /*                        5 task                            */
 class Test {
     constructor(questions, results) {
@@ -311,7 +334,7 @@ function printResults() {
     btnAgain.textContent = "Пройти ещё раз"
     for (let i = 0; i < 10; i++) {
         question[i] = document.createElement("p");
-        question[i].innerText =count + ") " + test.questions[i].text;
+        question[i].innerText = count + ") " + test.questions[i].text;
         count++;
         correct[i] = document.createElement("p");
         correct[i].innerText = choosenAnswers.shift() + " (" + choosenAnswers.shift() + ")";
@@ -358,8 +381,12 @@ function openImage() {
 function openMenu() {
     let container = document.querySelector(".container");
     container.style.display = "none";
+    let header = document.querySelector(".header");
+    header.style.display = "none";
     let mainContainer = document.querySelector(".main_container");
     mainContainer.style.display = "flex";
+    let heading = document.querySelector(".heading");
+    heading.style.display = "none";
     let modalHeader = document.querySelector(".modal_header");
     let firstContainer = document.querySelector(".first_container");
     let secondContainer = document.querySelector(".second_container");
@@ -384,6 +411,8 @@ function openMenu() {
         e.preventDefault();
         layer.style.display = "none";
         container.style.display = "flex";
+        header.style.display = "flex";
+        heading.style.display = "flex";
     });
 };
 const animItems = document.querySelectorAll(".anim_items");

@@ -265,6 +265,7 @@
           <div class="btn">
             <button type="button" onclick="extrArray()">Ввести массив</button>
             <div class="extr"></div>
+            <div class="listArray"></div>
           </div>
         </div>
       </div>
@@ -315,10 +316,14 @@
               :
               <div class="second">00</div>
             </div>
+            <div class="print">
+
+            </div>
             <div class="container_button">
               <button onclick="timer.Start()">Старт</button>
               <button onclick="timer.Stop()">Стоп</button>
               <button onclick="timer.StartAgain()">Начать заново</button>
+              <button class = "check_time" onclick="timer.CheckTime()">Сколько времени прошло</button>
             </div>
           </div>
         </div>

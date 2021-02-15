@@ -10,8 +10,12 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
   background-color: #684fd4ea;
   height: 50px;
+}
+.check_time {
+  margin-bottom: 10px;
 }
 .container {
   display: flex;
@@ -63,7 +67,7 @@ header {
 .list {
   margin: 0px 0px 20px 0px;
 }
-p {
+p, .print {
   font-family: ProximaNova, sans-serif;
   font-size: 20px;
   font-weight: 600;
@@ -256,7 +260,6 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
   border-bottom: 1px solid #eceeef;
   background-color: #684fd4ea;
 }
